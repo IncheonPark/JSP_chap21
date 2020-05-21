@@ -50,7 +50,7 @@ version="3.1">
   <!-- ControllerUsingURI 설정 -->
   <servlet>
   	<servlet-name>ControllerUsingURI</servlet-name>
-  	<servlet-class>mvc.controlle.ControllerUsingURIr</servlet-class>
+  	<servlet-class>mvc.controller.ControllerUsingURI</servlet-class>
   	<init-param>
   		<param-name>configFile</param-name>
   		<param-value>
