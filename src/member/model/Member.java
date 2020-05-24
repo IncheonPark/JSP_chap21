@@ -20,6 +20,11 @@ public class Member {
 		return password.equals(pwd);
 	}
 	
+	//암호 변경 메서드 추가
+	public void changePassword(String newPwd) {
+		this.password = newPwd;
+	}
+	
 	public String getId() {
 		return id;
 	}

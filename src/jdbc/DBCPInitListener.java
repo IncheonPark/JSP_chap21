@@ -22,8 +22,8 @@ public class DBCPInitListener implements ServletContextListener {
 	public void contextInitialized(ServletContextEvent sce) {
 		
 		String poolConfig = sce.getServletContext().getInitParameter("poolConfig");
-		Properties prop = new Properties();
 		
+		Properties prop = new Properties();
 		try {
 			prop.load(new StringReader(poolConfig));
 		} catch(IOException e) {
@@ -49,10 +49,12 @@ public class DBCPInitListener implements ServletContextListener {
 			String username = prop.getProperty("dbUser");
 			String pw = prop.getProperty("dbPass");
 			
+			//데이터베이스의 url에 mysql이 들어갈 시  서버 타임 설정 추가
 			if(jdbcUrl.contains("mysql")) {
-				jdbcUrl = jdbcUrl + "&serverTimezone=UTC"; //데이터베이스의 url에 mysql이 들어갈 시  서버 타임 설정 추가
+				jdbcUrl = jdbcUrl + "&serverTimezone=UTC"; 
 			}
 			
+			//연결된 커넥션 팩토리 생성
 			ConnectionFactory connFactory = new DriverManagerConnectionFactory(jdbcUrl, username, pw);
 			
 			PoolableConnectionFactory poolableConnFactory = new PoolableConnectionFactory(connFactory, null);
@@ -60,11 +62,10 @@ public class DBCPInitListener implements ServletContextListener {
 			String validationQuery = prop.getProperty("validationQuery");
 			
 			if(validationQuery != null && !validationQuery.isEmpty()) {
-				poolableConnFactory.setValidationQuery(validationQuery);
+				poolableConnFactory.setValidationQuery(validationQuery); //무슨 메서드인지 찾아보기
 			}
 			
-			GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
-			
+			GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();	
 			poolConfig.setTimeBetweenEvictionRunsMillis(1000L*60L*5L);
 			poolConfig.setTestWhileIdle(true);
 			

@@ -46,5 +46,17 @@ public class MemberDao {
 			pstmt.executeUpdate();
 		}
 	}
+	
+	//이름 및 비밀번호 변경 메서드 추가
+	public void update(Connection conn, Member member) throws SQLException {
+		
+		try (PreparedStatement pstmt = 
+				conn.prepareStatement("update member set name =?, password =? where memberid =?")) {
+			pstmt.setString(1, member.getName());
+			pstmt.setString(1, member.getPassword());
+			pstmt.setString(1, member.getId());
+			pstmt.executeUpdate();
+		}
+	}
 
 }

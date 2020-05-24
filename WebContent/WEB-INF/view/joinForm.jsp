@@ -23,7 +23,7 @@
 			<c:if test="${errors.password }"> 암호를 입력하세요. </c:if>
 		</p>
 		<p>
-			확인:<br/> <input type="password" name="confirmPassword" }">
+			암호 확인:<br/> <input type="password" name="confirmPassword" }">
 			<c:if test="${errors.confirmPassword }"> 확인 암호를 입력하세요. </c:if>
 			<c:if test="${errors.notMatch }"> 암호와 확인 암호가 일치하지 않습니다. </c:if>
 		</p>
