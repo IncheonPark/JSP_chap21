@@ -33,6 +33,7 @@
 	<u:notLogin>
 		UCT: <a href="join.do">[회원 가입 하기]</a>
 		<a href="login.do">[로그인 하기]</a>
+		<a href = "${pageContext.request.contextPath }/article/list.do">[게시글 목록 보기]</a>
 	</u:notLogin>
 	<br/>
 </body>
