@@ -7,6 +7,7 @@
 <title>암호 변경 성공</title>
 </head>
 <body>
-	암호 변경에 성공 했습니다.
+	${authUser.name }님 암호 변경에 성공 했습니다.
+	<a href="index.jsp"> 홈 화면으로 돌아가기</a>
 </body>
 </html>

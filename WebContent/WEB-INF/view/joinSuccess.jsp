@@ -8,5 +8,6 @@
 </head>
 <body>
 	${param.name }님, 회원 가입에 성공했습니다. <br/>
+	<a href="index.jsp"> 홈 화면으로 돌아가기</a>
 </body>
 </html>
